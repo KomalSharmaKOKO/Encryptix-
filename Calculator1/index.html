@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="Calculator">
+        <div class="display" id="display">0</div>
+        <button class="btn" onclick="cleardisplay()">C</button>
+        <button class="btn" onclick="deletelast()">$</button>
+        <button class="btn" onclick="appendcharacter('%')">%</button>
+        <button class="btn" onclick="appendcharacter('/')">/</button>
+        <button class="btn" onclick="appendcharacter('7')">7</button>
+        <button class="btn" onclick="appendcharacter('8')">8</button>
+        <button class="btn" onclick="appendcharacter('9')">9</button>
+        <button class="btn" onclick="appendcharacter('*')">*</button>
+        <button class="btn" onclick="appendcharacter('4')">4</button>
+        <button class="btn" onclick="appendcharacter('5')">5</button>
+        <button class="btn" onclick="appendcharacter('6')">6</button>
+        <button class="btn" onclick="appendcharacter('-')">-</button>
+        <button class="btn" onclick="appendcharacter('1')">1</button>
+        <button class="btn" onclick="appendcharacter('2')">2</button>
+        <button class="btn" onclick="appendcharacter('3')">3</button>
+        <button class="btn" onclick="appendcharacter('+')">+</button>
+        <button class="btn span-two" onclick="appendcharacter('0')">0</button>
+        <button class="btn" onclick="appendcharacter('.')">.</button>
+        <button class="btn" onclick="calculate()">=</button>
+    </div>
+    <script>
+        function cleardisplay(){
+            document.getElementById('display').innerText='0';
+        }
+        function deletelast(){
+            document.getElementById('display').innerText;
+            if(display.length>1){
+                document.getElementById('display').innerText=display.slice(0,-1);
+            }else{
+                document.getElementById('display').innerText='0';
+            }
+
+        }   
+        function appendcharacter(character){
+            let display=document.getElementById('display');
+            if(display.innerText==='0' && character !=='.'){
+                display.innerText=character;
+            }else{
+                display.innerText+=character;
+            }
+        }function calculate(){
+            let display=document.getElementById('display').innerText;
+            try{
+                display=eval(display);
+                document.getElementById('display').innerText=display;
+            }catch{
+                document.getElementsByid('display').innerText='error';
+            }
+        }
+         </script>
+</body>
+</html>
